@@ -4,44 +4,44 @@ A modern routine-building web app that helps users design, organize, and optimiz
 
 ---
 
-## overview
+## Overview
 
 daystruct allows users to turn their daily habits into visual, manageable building blocks. by converting routines into draggable activity cards, users can easily structure their day and experiment with better ways to spend their time.
 
 ---
 
-## features
+## Features
 
 ### routine builder
 - input your current daily routine  
 - automatically converts activities into draggable cards  
 
-### activity cards
+### Activity Cards
 - each task becomes a visual card  
 - easily editable and customizable  
 - add new activities to build better habits  
 
-### drag & drop scheduler
+### Drag & Drop Scheduler
 - intuitive timeline interface  
 - drag cards into specific time slots  
 - quickly rearrange your day  
 
-### multi-day planning
+### Multi-day Planning
 - create routines for multiple days  
 - option for tab-based or unified view  
 
-### ai assistant (planned)
+### AI Assistant
 - get suggestions to improve your routine  
 - identify inefficiencies or gaps  
 - personalized productivity tips  
 
-### built-in to-do list (planned)
+### Built-in To-Do List
 - manage short-term tasks  
 - convert tasks into routine items  
 
 ---
 
-## ui / ux
+## UI / UX
 
 - clean and modern design  
 - smooth drag-and-drop interactions  
@@ -50,17 +50,17 @@ daystruct allows users to turn their daily habits into visual, manageable buildi
 
 ---
 
-## tech stack
+## Tech Stack
 
-- frontend: react  
-- backend: node.js / express  
-- database: mongodb  
-- styling: css / tailwind  
-- ai (optional): openai api  
+- frontend: tbd  
+- backend: tbd
+- database: tbd
+- styling: tbd
+- ai: tbd 
 
 ---
 
-## future improvements
+## Future Improvements
 
 - habit tracking & streaks  
 - notifications & reminders  
@@ -68,13 +68,13 @@ daystruct allows users to turn their daily habits into visual, manageable buildi
 - analytics (time usage insights)  
 
 
-## project status
+## Project Status
 
 this project is currently a work in progress. features and design are actively being improved.
 
 ---
 
-## author
+## Authors
 
 Mitchell Macdonald
 Gurshaan Daula
