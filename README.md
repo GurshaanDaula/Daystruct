@@ -12,7 +12,7 @@ daystruct allows users to turn their daily habits into visual, manageable buildi
 
 ## Features
 
-### routine builder
+### Routine Builder
 - input your current daily routine  
 - automatically converts activities into draggable cards  
 
