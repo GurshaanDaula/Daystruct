@@ -4,143 +4,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Routine Maker</title>
+    <title>Daystruct</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-    <header class="site-header">
-        <div class="header-left">
-            <div class="logo-mark">R</div>
-            <div>
-                <h1>Routine Maker</h1>
-                <p>Plan your days with structure and style</p>
-            </div>
-        </div>
-
-        <nav class="header-nav">
-            <a href="#" class="header-link">Home</a>
-            <a href="#" class="header-link">Planner</a>
-            <a href="#" class="header-link">To-Do</a>
-            <a href="#" class="header-link">Assistant</a>
-        </nav>
-    </header>
-
-    <div class="app-shell">
-        <aside class="sidebar">
-            <div class="brand">
-                <h1>Routine Maker</h1>
-                <p>Build a better daily flow</p>
-            </div>
-
-            <nav class="sidebar-nav">
-                <button class="nav-btn active" data-panel="plannerPanel">Planner</button>
-                <button class="nav-btn" data-panel="todoPanel">To-Do List</button>
-                <button class="nav-btn" data-panel="assistantPanel">AI Assistant</button>
-            </nav>
-
-            <div class="sidebar-card">
-                <h3>Quick Tips</h3>
-                <ul>
-                    <li>Drag activities into time slots</li>
-                    <li>Create routines for different days</li>
-                    <li>Keep important tasks visible</li>
-                </ul>
-            </div>
-        </aside>
-
-        <main class="main-content">
-            <header class="topbar">
-                <div>
-                    <h2>Your Routine Dashboard</h2>
-                    <p>Organize your days in a clean and flexible way</p>
+    <div class="page-wrap">
+        <header class="site-header">
+            <div class="brand-wrap">
+                <img src="/images/daystruct-logo.png" alt="Daystruct Logo" class="brand-logo">
+                <div class="brand-text">
+                    <h1>Daystruct</h1>
+                    <p>Design your day with structure, clarity, and momentum.</p>
                 </div>
-                <button id="clearScheduleBtn" class="danger-btn">Clear Day</button>
-            </header>
+            </div>
 
-            <!-- Planner Panel -->
-            <section id="plannerPanel" class="panel active-panel">
-                <div class="layout-grid">
-                    <section class="card">
-                        <div class="card-header">
-                            <h3>Current Routine Input</h3>
-                            <p>Paste or write your current daily routine here</p>
-                        </div>
+            <div class="header-badge">
+                <span>Routine Planner</span>
+            </div>
+        </header>
 
-                        <textarea id="routineInput" placeholder="Example:
-Wake up - 7:00 AM
-Breakfast - 8:00 AM
-Gym - 5:00 PM
-Study - 7:00 PM"></textarea>
-
-                        <button id="generateRoutineBtn" class="primary-btn">Generate Activity Cards</button>
-                    </section>
-
-                    <section class="card">
-                        <div class="card-header">
-                            <h3>Create New Activity</h3>
-                            <p>Add custom activities to your planner</p>
-                        </div>
-
-                        <div class="form-group">
-                            <input type="text" id="activityName" placeholder="Activity name">
-                            <select id="activityType">
-                                <option value="Personal">Personal</option>
-                                <option value="Work">Work</option>
-                                <option value="Study">Study</option>
-                                <option value="Health">Health</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-
-                        <button id="addActivityBtn" class="primary-btn">Add Activity Card</button>
-                    </section>
+        <main class="dashboard-shell">
+            <section class="hero-strip">
+                <div class="hero-copy">
+                    <h2>Build a routine that actually fits your life.</h2>
+                    <p>
+                        Add activities, organize each day, and drag your plans into a structure
+                        that feels simple, flexible, and productive.
+                    </p>
                 </div>
 
-                <section class="card days-card">
-                    <div class="card-header">
-                        <h3>Day Tabs</h3>
-                        <p>Plan for multiple days</p>
-                    </div>
-
-                    <div class="day-tabs">
-                        <button class="day-tab active" data-day="Monday">Monday</button>
-                        <button class="day-tab" data-day="Tuesday">Tuesday</button>
-                        <button class="day-tab" data-day="Wednesday">Wednesday</button>
-                        <button class="day-tab" data-day="Thursday">Thursday</button>
-                        <button class="day-tab" data-day="Friday">Friday</button>
-                        <button class="day-tab" data-day="Saturday">Saturday</button>
-                        <button class="day-tab" data-day="Sunday">Sunday</button>
-                    </div>
-                </section>
-
-                <div class="planner-grid">
-                    <section class="card">
-                        <div class="card-header">
-                            <h3>Activity Cards</h3>
-                            <p>Drag these into your schedule</p>
-                        </div>
-
-                        <div id="activityBank" class="activity-bank"></div>
-                    </section>
-
-                    <section class="card schedule-card">
-                        <div class="card-header">
-                            <h3 id="scheduleTitle">Monday Schedule</h3>
-                            <p>Drop cards into time periods</p>
-                        </div>
-
-                        <div id="scheduleSlots" class="schedule-slots"></div>
-                    </section>
+                <div class="hero-actions">
+                    <button id="focusPlannerBtn" class="primary-btn hero-btn">Start Planning</button>
+                    <button id="clearScheduleBtn" class="secondary-btn hero-btn">Clear Current Day</button>
                 </div>
             </section>
 
-            <!-- Todo Panel -->
-            <section id="todoPanel" class="panel">
-                <section class="card">
-                    <div class="card-header">
+            <section class="top-controls card">
+                <div class="section-heading">
+                    <h3>Create Activity Cards</h3>
+                    <p>Add activities manually or paste your current routine to turn it into draggable cards.</p>
+                </div>
+
+                <div class="top-controls-grid">
+                    <div class="input-block">
+                        <label for="routineInput">Current Routine</label>
+                        <textarea id="routineInput" placeholder="Example:
+Wake up
+Breakfast
+Gym
+Study
+Work
+Relax"></textarea>
+                    </div>
+
+                    <div class="activity-form">
+                        <div class="input-block">
+                            <label for="activityName">New Activity</label>
+                            <input type="text" id="activityName" placeholder="Enter activity name">
+                        </div>
+
+                        <div class="input-block">
+                            <label for="activityType">Category</label>
+                            <select id="activityType">
+                                <option value="General">General</option>
+                                <option value="Health">Health</option>
+                                <option value="Work">Work</option>
+                                <option value="Study">Study</option>
+                                <option value="Fun">Fun</option>
+                            </select>
+                        </div>
+
+                        <div class="button-row">
+                            <button id="addActivityBtn" class="primary-btn">Add Activity</button>
+                            <button id="generateRoutineBtn" class="secondary-btn">Import Routine</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="days-card card">
+                <div class="section-heading">
+                    <h3>Choose a Day</h3>
+                    <p>Switch between days and build a routine for the full week.</p>
+                </div>
+
+                <div class="days-strip">
+                    <button class="day-tab active" data-day="Monday">Monday</button>
+                    <button class="day-tab" data-day="Tuesday">Tuesday</button>
+                    <button class="day-tab" data-day="Wednesday">Wednesday</button>
+                    <button class="day-tab" data-day="Thursday">Thursday</button>
+                    <button class="day-tab" data-day="Friday">Friday</button>
+                    <button class="day-tab" data-day="Saturday">Saturday</button>
+                    <button class="day-tab" data-day="Sunday">Sunday</button>
+                </div>
+            </section>
+
+            <section class="planner-layout">
+                <aside class="activity-sidebar card">
+                    <div class="section-heading">
+                        <h3>Activity Bank</h3>
+                        <p>Drag any activity into a time block on the right.</p>
+                    </div>
+
+                    <div id="activityBank" class="activity-bank"></div>
+                </aside>
+
+                <section class="calendar-panel card">
+                    <div class="calendar-header">
+                        <div>
+                            <h3 id="scheduleTitle">Monday Schedule</h3>
+                            <p>Plan your day using clean time blocks.</p>
+                        </div>
+                    </div>
+
+                    <div id="scheduleSlots" class="schedule-slots"></div>
+                </section>
+            </section>
+
+            <section class="bottom-panels">
+                <section class="card todo-card">
+                    <div class="section-heading">
                         <h3>To-Do List</h3>
-                        <p>Track tasks alongside your routine</p>
+                        <p>Capture quick tasks alongside your daily plan.</p>
                     </div>
 
                     <div class="todo-input-row">
@@ -150,48 +136,29 @@ Study - 7:00 PM"></textarea>
 
                     <ul id="todoList" class="todo-list"></ul>
                 </section>
-            </section>
 
-            <!-- Assistant Panel -->
-            <section id="assistantPanel" class="panel">
-                <section class="card">
-                    <div class="card-header">
-                        <h3>In-App AI Assistant</h3>
-                        <p>Placeholder for future AI routine suggestions</p>
+                <section class="card assistant-card">
+                    <div class="section-heading">
+                        <h3>AI Assistant</h3>
+                        <p>A space for future routine suggestions and smarter planning help.</p>
                     </div>
 
-                    <div class="assistant-box">
-                        <div class="assistant-message">
-                            <strong>Assistant:</strong>
-                            <p>
-                                I can eventually help suggest a healthier, more productive routine.
-                                For now, this is a UI placeholder you can connect to an API later.
-                            </p>
-                        </div>
+                    <textarea id="assistantInput"
+                        placeholder="Ask for a productivity or routine suggestion..."></textarea>
+                    <button id="assistantBtn" class="secondary-btn assistant-btn">Get Suggestion</button>
 
-                        <textarea id="assistantInput" placeholder="Ask for routine advice..."></textarea>
-                        <button id="assistantBtn" class="primary-btn">Get Suggestions</button>
-
-                        <div id="assistantResponse" class="assistant-response">
-                            Example: “Try grouping similar tasks together and leaving breaks between focus-heavy
-                            activities.”
-                        </div>
+                    <div id="assistantResponse" class="assistant-response">
+                        Example: Try scheduling your most demanding task earlier in the day, then place lower-effort
+                        tasks after it.
                     </div>
                 </section>
             </section>
         </main>
+
+        <footer class="site-footer">
+            <p>Daystruct — Turn your routine into a system that works.</p>
+        </footer>
     </div>
-
-    <footer class="site-footer">
-        <div class="footer-left">
-            <h3>Routine Maker</h3>
-            <p>Design better days, one routine at a time.</p>
-        </div>
-
-        <div class="footer-right">
-            <p>Built with EJS, CSS, and JavaScript</p>
-        </div>
-    </footer>
 
     <script src="/js/script.js"></script>
 </body>

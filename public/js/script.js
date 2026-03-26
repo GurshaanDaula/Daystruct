@@ -16,9 +16,6 @@ const assistantBtn = document.getElementById('assistantBtn');
 const assistantInput = document.getElementById('assistantInput');
 const assistantResponse = document.getElementById('assistantResponse');
 
-const navButtons = document.querySelectorAll('.nav-btn');
-const panels = document.querySelectorAll('.panel');
-
 const dayTabs = document.querySelectorAll('.day-tab');
 
 const timePeriods = [
@@ -33,10 +30,10 @@ const timePeriods = [
 ];
 
 let activities = [
-    { id: generateId(), name: 'Wake Up', type: 'Personal' },
-    { id: generateId(), name: 'Breakfast', type: 'Personal' },
-    { id: generateId(), name: 'Workout', type: 'Health' },
-    { id: generateId(), name: 'Study Session', type: 'Study' }
+    { id: generateId(), name: 'Eat', type: 'General' },
+    { id: generateId(), name: 'Sleep', type: 'General' },
+    { id: generateId(), name: 'Gym', type: 'Health' },
+    { id: generateId(), name: 'Code', type: 'Study' }
 ];
 
 let schedules = {
@@ -161,8 +158,7 @@ addActivityBtn.addEventListener('click', () => {
     });
 
     activityName.value = '';
-    activityType.value = 'Personal';
-
+    activityType.value = 'General';
     renderActivityBank();
 });
 
@@ -176,7 +172,7 @@ generateRoutineBtn.addEventListener('click', () => {
         activities.push({
             id: generateId(),
             name: line,
-            type: 'Imported Routine'
+            type: 'Imported'
         });
     });
 
@@ -188,7 +184,6 @@ dayTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         dayTabs.forEach(btn => btn.classList.remove('active'));
         tab.classList.add('active');
-
         currentDay = tab.dataset.day;
         renderSchedule(currentDay);
     });
@@ -199,17 +194,6 @@ clearScheduleBtn.addEventListener('click', () => {
     renderSchedule(currentDay);
 });
 
-navButtons.forEach(button => {
-    button.addEventListener('click', () => {
-        navButtons.forEach(btn => btn.classList.remove('active'));
-        panels.forEach(panel => panel.classList.remove('active-panel'));
-
-        button.classList.add('active');
-        document.getElementById(button.dataset.panel).classList.add('active-panel');
-    });
-});
-
-/* To-do list */
 addTodoBtn.addEventListener('click', addTodo);
 todoInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') addTodo();
@@ -249,22 +233,32 @@ function addTodo() {
 
     li.appendChild(span);
     li.appendChild(actions);
-
     todoList.appendChild(li);
+
     todoInput.value = '';
 }
 
-/* Assistant placeholder */
 assistantBtn.addEventListener('click', () => {
     const prompt = assistantInput.value.trim();
 
     if (!prompt) {
-        assistantResponse.textContent = 'Try asking something about improving focus, time management, or balancing your day.';
+        assistantResponse.textContent = 'Try asking for help with productivity, focus, consistency, or balance.';
         return;
     }
 
     assistantResponse.textContent =
-        `Suggestion based on: "${prompt}" — Try prioritizing your 2–3 most important tasks early in the day, grouping similar tasks together, and scheduling short breaks between demanding activities.`;
+        `Suggestion: Based on "${prompt}", try putting your hardest task first, leaving a recovery block after it, and grouping similar activities together to reduce mental switching.`;
 });
+
+const focusPlannerBtn = document.getElementById('focusPlannerBtn');
+
+if (focusPlannerBtn) {
+    focusPlannerBtn.addEventListener('click', () => {
+        const planner = document.querySelector('.days-card');
+        if (planner) {
+            planner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    });
+}
 
 init();
