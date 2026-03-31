@@ -46,11 +46,12 @@ body {
 /* Header */
 .site-header {
     width: 100%;
-    padding: 28px 34px 18px;
+    padding: 8px 34px 18px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 24px;
+    background: linear-gradient(135deg, rgba(68, 15, 225, 0.98), rgba(172, 15, 225, 0.94), rgba(225, 15, 173, 0.92));
 }
 
 .brand-wrap {
@@ -60,8 +61,8 @@ body {
 }
 
 .brand-logo {
-    width: 118px;
-    height: 118px;
+    width: 100px;
+    height: 100 px;
     object-fit: contain;
     flex-shrink: 0;
     filter: drop-shadow(0 10px 20px rgba(68, 15, 225, 0.14));
@@ -73,16 +74,16 @@ body {
 }
 
 .brand-text h1 {
-    font-size: 3.4rem;
+    font-size: 2rem;
     line-height: 1;
-    color: var(--blue);
+    color: white;
     margin-bottom: 10px;
     letter-spacing: -1.5px;
 }
 
 .brand-text p {
-    font-size: 1.4rem;
-    color: var(--text);
+    font-size: 1rem;
+    color: white;
     max-width: 650px;
 }
 
@@ -103,9 +104,14 @@ body {
     padding: 0 22px 24px;
 }
 
+.top-container{
+    display: flex;
+    flex-direction: row;
+}
+
 /* Hero */
 .hero-strip {
-    background: linear-gradient(135deg, rgba(68, 15, 225, 0.98), rgba(172, 15, 225, 0.94), rgba(225, 15, 173, 0.92));
+    background-color: var(--blue);
     color: white;
     border-radius: var(--radius-xl);
     padding: 30px 32px;
@@ -115,6 +121,8 @@ body {
     align-items: center;
     gap: 24px;
     box-shadow: var(--shadow-lg);
+    width: 50%;
+    margin-top: 22px;
 }
 
 .hero-copy h2 {
@@ -167,6 +175,8 @@ body {
 
 /* Top controls */
 .top-controls {
+    width: 100%;
+    margin-top: 22px;
     margin-bottom: 18px;
 }
 
@@ -181,12 +191,25 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    flex: 1;
 }
 
 .input-block label {
     font-weight: bold;
     color: var(--blue);
     font-size: 0.95rem;
+}
+
+.input-block input,
+.input-block select {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#addActivityBtn {
+    flex: 0.5;
+    align-self: flex-end; 
+    margin-bottom: 70px;
 }
 
 #routineInput,
@@ -197,7 +220,7 @@ select {
     border: 1px solid rgba(68, 15, 225, 0.08);
     outline: none;
     border-radius: var(--radius-lg);
-    padding: 16px 18px;
+    padding: 10px 18px;
     font-size: 1rem;
     background: rgba(255, 255, 255, 0.92);
     color: var(--text);
@@ -206,7 +229,7 @@ select {
 
 #routineInput,
 #assistantInput {
-    min-height: 150px;
+    min-height: 50px;
     resize: vertical;
 }
 
@@ -221,15 +244,15 @@ select:focus {
 
 .activity-form {
     display: flex;
-    flex-direction: column;
-    gap: 14px;
-    justify-content: space-between;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+    
 }
 
 .button-row {
-    display: flex;
     gap: 12px;
-    flex-wrap: wrap;
+
 }
 
 /* Day tabs */
