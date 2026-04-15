@@ -8,16 +8,16 @@
     --blue: #440FE1;
     --purple: #AC0FE1;
     --pink: #E10FAD;
-    --bg: #ececec;
-    --panel: #dcdcdc;
-    --card: rgba(255, 255, 255, 0.72);
-    --card-solid: #f7f7f9;
-    --text: #1f1f25;
-    --muted: #666877;
+    --bg: #1a1a1d;
+    --panel: #242428;
+    --card: rgba(36, 36, 40, 0.92);
+    --card-solid: #242428;
+    --text: #ffffff;
+    --muted: #b8b8c5;
     --white: #ffffff;
-    --border-soft: rgba(255, 255, 255, 0.35);
-    --shadow-lg: 0 18px 40px rgba(68, 15, 225, 0.10);
-    --shadow-md: 0 10px 24px rgba(68, 15, 225, 0.10);
+    --border-soft: rgba(255, 255, 255, 0.08);
+    --shadow-lg: 0 18px 40px rgba(68, 15, 225, 0.18);
+    --shadow-md: 0 10px 24px rgba(68, 15, 225, 0.18);
     --radius-xl: 30px;
     --radius-lg: 22px;
     --radius-md: 16px;
@@ -31,9 +31,9 @@ html {
 body {
     font-family: Arial, Helvetica, sans-serif;
     background:
-        radial-gradient(circle at top left, rgba(172, 15, 225, 0.08), transparent 24%),
-        radial-gradient(circle at top right, rgba(225, 15, 173, 0.08), transparent 24%),
-        linear-gradient(180deg, #efeff1, #e7e7ea);
+        radial-gradient(circle at top right, rgba(172, 15, 225, 0.08), transparent 25%),
+        radial-gradient(circle at top left, rgba(225, 15, 173, 0.06), transparent 22%),
+        linear-gradient(180deg, #101014 0%, #15151b 100%);
     color: var(--text);
     min-height: 100vh;
 }
@@ -46,48 +46,58 @@ body {
 /* Header */
 .site-header {
     width: 100%;
-    padding: 8px 34px 18px;
-    display: flex;
-    justify-content: space-between;
+    padding: 12px 34px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    gap: 24px;
+    gap: 20px;
     background: linear-gradient(135deg, rgba(68, 15, 225, 0.98), rgba(172, 15, 225, 0.94), rgba(225, 15, 173, 0.92));
 }
 
 .brand-wrap {
+    grid-column: 2;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 22px;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .brand-logo {
-    width: 100px;
-    height: 100 px;
+    width: 67px;
+    height: 67px;
     object-fit: contain;
-    flex-shrink: 0;
-    filter: drop-shadow(0 10px 20px rgba(68, 15, 225, 0.14));
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 10px 20px rgba(68, 15, 225, 0.18));
     transition: transform 0.25s ease;
 }
 
 .brand-logo:hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
 
 .brand-text h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
     line-height: 1;
     color: white;
-    margin-bottom: 10px;
-    letter-spacing: -1.5px;
+    margin-bottom: 6px;
+    letter-spacing: -1px;
 }
 
 .brand-text p {
     font-size: 1rem;
     color: white;
     max-width: 650px;
+    margin: 0 auto;
 }
 
 .header-badge {
+    grid-column: 3;
+    justify-self: end;
     min-width: 260px;
     padding: 18px 26px;
     border-radius: 999px;
@@ -104,7 +114,7 @@ body {
     padding: 0 22px 24px;
 }
 
-.top-container{
+.top-container {
     display: flex;
     flex-direction: row;
 }
@@ -163,7 +173,7 @@ body {
 }
 
 .section-heading h3 {
-    color: var(--blue);
+    color: #ffffff;
     font-size: 1.45rem;
     margin-bottom: 6px;
 }
@@ -196,7 +206,7 @@ body {
 
 .input-block label {
     font-weight: bold;
-    color: var(--blue);
+    color: #ffffff;
     font-size: 0.95rem;
 }
 
@@ -208,7 +218,7 @@ body {
 
 #addActivityBtn {
     flex: 0.5;
-    align-self: flex-end; 
+    align-self: flex-end;
     margin-bottom: 70px;
 }
 
@@ -217,13 +227,13 @@ body {
 input,
 select {
     width: 100%;
-    border: 1px solid rgba(68, 15, 225, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     outline: none;
     border-radius: var(--radius-lg);
     padding: 10px 18px;
     font-size: 1rem;
-    background: rgba(255, 255, 255, 0.92);
-    color: var(--text);
+    background: rgba(42, 42, 48, 0.95);
+    color: white;
     transition: transform 0.2s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
@@ -247,12 +257,10 @@ select:focus {
     flex-direction: row;
     gap: 10px;
     width: 100%;
-    
 }
 
 .button-row {
     gap: 12px;
-
 }
 
 /* Day tabs */
@@ -298,7 +306,7 @@ select:focus {
 
 .activity-sidebar {
     min-height: 760px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.76), rgba(255, 255, 255, 0.58));
+    background: linear-gradient(180deg, rgba(36, 36, 40, 0.95), rgba(28, 28, 32, 0.9));
 }
 
 .activity-bank {
@@ -310,7 +318,7 @@ select:focus {
 
 .calendar-panel {
     min-height: 760px;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.80), rgba(255, 255, 255, 0.60));
+    background: linear-gradient(180deg, rgba(36, 36, 40, 0.95), rgba(28, 28, 32, 0.9));
 }
 
 .calendar-header {
@@ -323,7 +331,7 @@ select:focus {
 
 .calendar-header h3 {
     font-size: 1.8rem;
-    color: var(--blue);
+    color: #ffffff;
     margin-bottom: 6px;
 }
 
@@ -348,7 +356,7 @@ select:focus {
 .time-label {
     font-size: 0.95rem;
     font-weight: bold;
-    color: var(--blue);
+    color: #ffffff;
     padding-left: 6px;
     opacity: 0.95;
 }
@@ -473,7 +481,7 @@ select:focus {
 }
 
 .todo-item {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(42, 42, 48, 0.95);
     border-radius: 16px;
     padding: 13px 14px;
     display: flex;
@@ -481,6 +489,7 @@ select:focus {
     align-items: center;
     gap: 12px;
     animation: fadeUp 0.25s ease;
+    color: white;
 }
 
 .todo-item.completed span {
@@ -499,10 +508,10 @@ select:focus {
 
 .assistant-response {
     margin-top: 14px;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(42, 42, 48, 0.95);
     border-radius: 18px;
     padding: 16px;
-    color: var(--muted);
+    color: #d6d6e0;
     line-height: 1.55;
 }
 
@@ -511,7 +520,7 @@ select:focus {
     width: 100%;
     text-align: center;
     padding: 8px 20px 26px;
-    color: var(--blue);
+    color: #ffffff;
     font-weight: bold;
     font-size: 1rem;
 }
@@ -577,6 +586,11 @@ select:focus {
     .hero-strip {
         flex-direction: column;
         align-items: flex-start;
+        width: 100%;
+    }
+
+    .top-container {
+        flex-direction: column;
     }
 }
 
